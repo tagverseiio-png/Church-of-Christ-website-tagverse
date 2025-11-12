@@ -1,7 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { Heart, BookOpen, Users } from "lucide-react";
-import covenantCup from "@/assets/covenant-cup.jpeg";
 import worshipScene from "@/assets/worship-scene.jpg";
 
 const Home = () => {
@@ -10,8 +9,8 @@ const Home = () => {
       {/* Hero Section */}
       <section className="relative overflow-hidden bg-gradient-soft py-20 md:py-32">
         <div className="container mx-auto px-4">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div className="space-y-6 animate-in fade-in slide-in-from-left duration-700">
+          <div className="max-w-4xl mx-auto text-center">
+            <div className="space-y-6 animate-in fade-in duration-700">
               <div className="inline-block">
                 <span className="text-accent font-medium text-sm uppercase tracking-wider">
                   Matthew 26:28
@@ -21,14 +20,14 @@ const Home = () => {
                 The Blood of the{" "}
                 <span className="text-gradient-gold">New Covenant</span>
               </h1>
-              <p className="text-lg md:text-xl text-muted-foreground max-w-2xl leading-relaxed">
+              <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
                 "For this is My blood of the new covenant, which is shed for many for the remission of sins."
               </p>
-              <p className="text-base md:text-lg text-foreground/80 max-w-2xl">
+              <p className="text-base md:text-lg text-foreground/80 max-w-2xl mx-auto">
                 Experience the transforming love and grace found through Jesus Christ. 
                 Discover God's unconditional love and the promise of eternal life through the New Covenant.
               </p>
-              <div className="flex flex-wrap gap-4 pt-4">
+              <div className="flex flex-wrap gap-4 pt-4 justify-center">
                 <Link to="/about">
                   <Button variant="covenant" size="lg" className="shadow-elevated">
                     <BookOpen className="mr-2 h-5 w-5" />
@@ -41,16 +40,6 @@ const Home = () => {
                     Get in Touch
                   </Button>
                 </Link>
-              </div>
-            </div>
-
-            <div className="relative animate-in fade-in slide-in-from-right duration-700 delay-300">
-              <div className="relative rounded-2xl overflow-hidden shadow-elevated">
-                <img
-                  src={covenantCup}
-                  alt="The Blood of the New Covenant"
-                  className="w-full h-auto object-cover"
-                />
               </div>
             </div>
           </div>
