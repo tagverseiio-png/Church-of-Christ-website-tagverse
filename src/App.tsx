@@ -30,21 +30,62 @@ const App = () => {
             <Route path="/admin/dashboard" element={<AdminDashboard />} />
             
             {/* Public routes with navigation/footer */}
+            <Route path="/" element={
+              <div className="flex flex-col min-h-screen">
+                <Navigation />
+                <main className="flex-grow">
+                  <Home />
+                </main>
+                <Footer />
+                <WhatsAppButton />
+                <ScrollToTop />
+              </div>
+            } />
+            
+            <Route path="/about" element={
+              <div className="flex flex-col min-h-screen">
+                <Navigation />
+                <main className="flex-grow">
+                  <About />
+                </main>
+                <Footer />
+                <WhatsAppButton />
+                <ScrollToTop />
+              </div>
+            } />
+            
+            <Route path="/gallery" element={
+              <div className="flex flex-col min-h-screen">
+                <Navigation />
+                <main className="flex-grow">
+                  <Gallery />
+                </main>
+                <Footer />
+                <WhatsAppButton />
+                <ScrollToTop />
+              </div>
+            } />
+            
+            <Route path="/contact" element={
+              <div className="flex flex-col min-h-screen">
+                <Navigation />
+                <main className="flex-grow">
+                  <Contact />
+                </main>
+                <Footer />
+                <WhatsAppButton />
+                <ScrollToTop />
+              </div>
+            } />
+            
+            {/* 404 Not Found */}
             <Route path="*" element={
               <div className="flex flex-col min-h-screen">
                 <Navigation />
                 <main className="flex-grow">
-                  <Routes>
-                    <Route path="/" element={<Home />} />
-                    <Route path="/about" element={<About />} />
-                    <Route path="/gallery" element={<Gallery />} />
-                    <Route path="/contact" element={<Contact />} />
-                    {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-                    <Route path="*" element={<NotFound />} />
-                  </Routes>
+                  <NotFound />
                 </main>
                 <Footer />
-                {/* Floating action buttons */}
                 <WhatsAppButton />
                 <ScrollToTop />
               </div>
