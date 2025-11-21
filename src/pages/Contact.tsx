@@ -5,9 +5,11 @@ import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { useToast } from "@/hooks/use-toast";
-import { Mail, Phone, MapPin, Send } from "lucide-react";
+import { Mail, Phone, MapPin, Send, Loader2 } from "lucide-react";
+import { useSiteContent } from "@/hooks/useSiteContent";
 
 const Contact = () => {
+  const { content, loading } = useSiteContent();
   const { toast } = useToast();
   const [formData, setFormData] = useState({
     name: "",
@@ -19,7 +21,6 @@ const Contact = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
-    // Basic validation
     if (!formData.name || !formData.email || !formData.message) {
       toast({
         title: "Please fill in all required fields",
@@ -37,13 +38,11 @@ const Contact = () => {
         formData.message
       );
 
-      // Show success message
       toast({
         title: "Message Sent!",
         description: "Thank you for reaching out. We'll get back to you soon.",
       });
 
-      // Reset form
       setFormData({
         name: "",
         email: "",
@@ -66,17 +65,26 @@ const Contact = () => {
     });
   };
 
+  if (loading) {
+    return (
+      <div className="min-h-screen flex items-center justify-center">
+        <Loader2 className="h-8 w-8 animate-spin text-primary" />
+      </div>
+    );
+  }
+
+  if (!content) return null;
+
   return (
     <div className="min-h-screen py-16 bg-gradient-soft">
       <div className="container mx-auto px-4">
         {/* Header */}
         <div className="max-w-4xl mx-auto text-center mb-16 space-y-4">
           <h1 className="text-4xl md:text-6xl font-bold text-primary">
-            Get in Touch
+            {content.contact.title}
           </h1>
           <p className="text-xl text-muted-foreground">
-            We'd love to hear from you. Whether you have questions, prayer requests, 
-            or would like to join our fellowship, please reach out.
+            {content.contact.description}
           </p>
         </div>
 
@@ -92,7 +100,7 @@ const Contact = () => {
                   <div>
                     <h3 className="font-bold text-primary mb-2">Email Us</h3>
                     <p className="text-muted-foreground text-sm">
-                    pcs.chinna@gmail.com
+                      {content.contact.email}
                     </p>
                   </div>
                 </div>
@@ -108,7 +116,7 @@ const Contact = () => {
                   <div>
                     <h3 className="font-bold text-primary mb-2">Call Us</h3>
                     <p className="text-muted-foreground text-sm">
-                      +91 9052402299
+                      {content.contact.phone}
                     </p>
                   </div>
                 </div>
@@ -123,13 +131,9 @@ const Contact = () => {
                   </div>
                   <div>
                     <h3 className="font-bold text-primary mb-2">Visit Us</h3>
-                    <p className="text-muted-foreground text-sm">
-                      Bro. Chinnaraja P<br />
-                      H. No 2, Thanigai Street,<br />
-                      Rajaji Nagar,
-                      Villivakkam,<br />
-                      Chennai - 49
-</p>
+                    <p className="text-muted-foreground text-sm whitespace-pre-line">
+                      {content.contact.address}
+                    </p>
                   </div>
                 </div>
               </CardContent>
@@ -139,9 +143,9 @@ const Contact = () => {
               <CardContent className="p-6">
                 <h3 className="font-bold text-primary mb-2">Service Times</h3>
                 <div className="space-y-2 text-sm text-muted-foreground">
-                  <p><strong>Sunday Worship:</strong> 10:00 AM</p>
-                  <p><strong>Bible Study:</strong> 9:00 AM</p>
-                  <p><strong>Wednesday Evening:</strong> 7:00 PM</p>
+                  <p><strong>Sunday Worship:</strong> {content.contact.serviceTimeSunday}</p>
+                  <p><strong>Bible Study:</strong> {content.contact.serviceTimeBibleStudy}</p>
+                  <p><strong>Wednesday Evening:</strong> {content.contact.serviceTimeWednesday}</p>
                 </div>
               </CardContent>
             </Card>

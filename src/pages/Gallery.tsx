@@ -157,7 +157,7 @@ const Gallery = () => {
             <blockquote className="text-xl md:text-2xl text-primary font-medium italic mb-4">
               "Let us hold fast the confession of our hope without wavering, for He who promised is faithful."
             </blockquote>
-            <footer className="text-accent font-medium">— Hebrews 10:23</footer>
+            
           </div>
         </div>
       </div>

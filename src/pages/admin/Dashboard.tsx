@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import GalleryManager from "@/components/admin/GalleryManager";
 import ContactMessages from "@/components/admin/ContactMessages";
+import ContentEditor from "@/components/admin/ContentEditor";
 import { LogOut, Loader2 } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 
@@ -69,11 +70,16 @@ const Dashboard = () => {
       </div>
 
       <div className="container mx-auto px-4 py-8">
-        <Tabs defaultValue="gallery" className="space-y-6">
-          <TabsList className="grid w-full max-w-md grid-cols-2">
+        <Tabs defaultValue="content" className="space-y-6">
+          <TabsList className="grid w-full max-w-2xl grid-cols-3">
+            <TabsTrigger value="content">Content</TabsTrigger>
             <TabsTrigger value="gallery">Gallery</TabsTrigger>
             <TabsTrigger value="messages">Messages</TabsTrigger>
           </TabsList>
+
+          <TabsContent value="content">
+            <ContentEditor />
+          </TabsContent>
 
           <TabsContent value="gallery">
             <GalleryManager />

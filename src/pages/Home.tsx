@@ -1,9 +1,27 @@
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
-import { Heart, BookOpen, Users } from "lucide-react";
+import { Heart, BookOpen, Users, Loader2 } from "lucide-react";
 import worshipScene from "@/assets/worship-scene.jpg";
+import { useSiteContent } from "@/hooks/useSiteContent";
 
 const Home = () => {
+  const { content, loading } = useSiteContent();
+
+  if (loading) {
+    return (
+      <div className="min-h-screen flex items-center justify-center">
+        <Loader2 className="h-8 w-8 animate-spin text-primary" />
+      </div>
+    );
+  }
+
+  if (!content) {
+    console.error('No content loaded in Home page');
+    return null;
+  }
+
+  console.log('Home page using content:', content.home.heroTitle);
+
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
@@ -13,19 +31,17 @@ const Home = () => {
             <div className="space-y-6 animate-in fade-in duration-700">
               <div className="inline-block">
                 <span className="text-accent font-medium text-sm uppercase tracking-wider">
-                  Matthew 26:28
+                  {content.home.heroSubtitle}
                 </span>
               </div>
               <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-primary leading-tight">
-                The Blood of the{" "}
-                <span className="text-gradient-gold">New Covenant</span>
+                {content.home.heroTitle}
               </h1>
               <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
                 "For this is My blood of the new covenant, which is shed for many for the remission of sins."
               </p>
               <p className="text-base md:text-lg text-foreground/80 max-w-2xl mx-auto">
-                Experience the transforming love and grace found through Jesus Christ. 
-                Discover God's unconditional love and the promise of eternal life through the New Covenant.
+                {content.home.heroDescription}
               </p>
               <div className="flex flex-wrap gap-4 pt-4 justify-center">
                 <Link to="/about">
@@ -51,12 +67,10 @@ const Home = () => {
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center space-y-6">
             <h2 className="text-3xl md:text-5xl font-bold text-primary">
-              Welcome to Our Fellowship
+              {content.home.welcomeTitle}
             </h2>
             <p className="text-lg text-muted-foreground leading-relaxed">
-              We are a community of believers united in Christ, devoted to sharing the gospel 
-              and living out the love and grace found in the New Covenant. Through His sacrifice, 
-              we have been redeemed and called to walk in His light.
+              {content.home.welcomeDescription}
             </p>
           </div>
         </div>
@@ -70,10 +84,9 @@ const Home = () => {
               <div className="w-14 h-14 bg-primary/10 rounded-full flex items-center justify-center mb-6">
                 <Heart className="h-7 w-7 text-primary" />
               </div>
-              <h3 className="text-2xl font-bold text-primary mb-4">Love & Grace</h3>
+              <h3 className="text-2xl font-bold text-primary mb-4">{content.home.value1Title}</h3>
               <p className="text-muted-foreground leading-relaxed">
-                God's unconditional love through Christ's sacrifice brings us grace, forgiveness, 
-                and the gift of eternal life. His love transforms our hearts.
+                {content.home.value1Description}
               </p>
             </div>
 
@@ -81,10 +94,9 @@ const Home = () => {
               <div className="w-14 h-14 bg-primary/10 rounded-full flex items-center justify-center mb-6">
                 <BookOpen className="h-7 w-7 text-primary" />
               </div>
-              <h3 className="text-2xl font-bold text-primary mb-4">Scripture & Truth</h3>
+              <h3 className="text-2xl font-bold text-primary mb-4">{content.home.value2Title}</h3>
               <p className="text-muted-foreground leading-relaxed">
-                We hold fast to the Word of God, seeking truth and understanding through 
-                the teachings of Christ and the apostles in the New Testament.
+                {content.home.value2Description}
               </p>
             </div>
 
@@ -92,10 +104,9 @@ const Home = () => {
               <div className="w-14 h-14 bg-primary/10 rounded-full flex items-center justify-center mb-6">
                 <Users className="h-7 w-7 text-primary" />
               </div>
-              <h3 className="text-2xl font-bold text-primary mb-4">Community</h3>
+              <h3 className="text-2xl font-bold text-primary mb-4">{content.home.value3Title}</h3>
               <p className="text-muted-foreground leading-relaxed">
-                We are a family in Christ, supporting one another in faith, worship, and service. 
-                Together, we grow in love and share His message.
+                {content.home.value3Description}
               </p>
             </div>
           </div>
@@ -113,11 +124,10 @@ const Home = () => {
         <div className="relative container mx-auto px-4 text-center">
           <div className="max-w-3xl mx-auto space-y-6 text-primary-foreground">
             <h2 className="text-3xl md:text-5xl font-bold">
-              Come and Experience God's Love
+              {content.home.ctaTitle}
             </h2>
             <p className="text-lg md:text-xl opacity-90">
-              Join us in worship, fellowship, and growing together in faith. 
-              All are welcome in the family of Christ.
+              {content.home.ctaDescription}
             </p>
             <div className="pt-4">
               <Link to="/contact">
