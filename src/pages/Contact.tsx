@@ -83,7 +83,7 @@ const Contact = () => {
           <h1 className="text-4xl md:text-6xl font-bold text-primary">
             {content.contact.title}
           </h1>
-          <p className="text-xl text-muted-foreground">
+          <p className="text-xl text-muted-foreground text-justify">
             {content.contact.description}
           </p>
         </div>

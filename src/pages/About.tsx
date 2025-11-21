@@ -35,7 +35,7 @@ const About = () => {
                   <Cross className="h-6 w-6 text-primary" />
                 </div>
                 <div>
-                  <p className="text-lg text-muted-foreground leading-relaxed">
+                  <p className="text-lg text-muted-foreground leading-relaxed text-justify">
                     {content.about.missionStatement}
                   </p>
                 </div>
@@ -50,11 +50,11 @@ const About = () => {
                 <h2 className="text-2xl md:text-3xl font-bold text-primary mb-4">
                   {content.about.truthTitle}
                 </h2>
-                <p className="text-lg text-foreground leading-relaxed">
+                <p className="text-lg text-foreground leading-relaxed text-justify">
                   {content.about.truthContent}
                 </p>
                 
-                <p className="text-lg text-foreground leading-relaxed">
+                <p className="text-lg text-foreground leading-relaxed text-justify">
                   {content.about.truthContent2}
                 </p>
               </div>
@@ -72,18 +72,18 @@ const About = () => {
                   <h2 className="text-2xl md:text-3xl font-bold text-primary mb-4">
                     {content.about.manuscriptTitle}
                   </h2>
-                  <blockquote className="border-l-4 border-accent pl-6 py-2 italic text-foreground/90">
+                  <blockquote className="border-l-4 border-accent pl-6 py-2 italic text-foreground/90 text-justify">
                     {content.about.manuscriptQuote}
                     <footer className="text-sm text-accent font-medium mt-2 not-italic">
                       — {content.about.manuscriptAuthor}
                     </footer>
                   </blockquote>
                   
-                  <p className="text-lg text-foreground leading-relaxed">
+                  <p className="text-lg text-foreground leading-relaxed text-justify">
                     {content.about.manuscriptContent}
                   </p>
                   
-                  <p className="text-lg text-foreground leading-relaxed">
+                  <p className="text-lg text-foreground leading-relaxed text-justify">
                     {content.about.manuscriptContent2}
                   </p>
                 </div>
@@ -103,15 +103,15 @@ const About = () => {
                     {content.about.scriptureTitle}
                   </h2>
                   
-                  <p className="text-lg text-foreground leading-relaxed">
+                  <p className="text-lg text-foreground leading-relaxed text-justify">
                     {content.about.scriptureContent1}
                   </p>
                   
-                  <p className="text-lg text-foreground leading-relaxed">
+                  <p className="text-lg text-foreground leading-relaxed text-justify">
                     {content.about.scriptureContent2}
                   </p>
                   
-                  <p className="text-lg text-foreground leading-relaxed">
+                  <p className="text-lg text-foreground leading-relaxed text-justify">
                     {content.about.scriptureContent3}
                   </p>
                 </div>

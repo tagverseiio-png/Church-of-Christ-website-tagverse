@@ -37,10 +37,10 @@ const Home = () => {
               <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-primary leading-tight">
                 {content.home.heroTitle}
               </h1>
-              <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
+              <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed text-center">
                 "For this is My blood of the new covenant, which is shed for many for the remission of sins."
               </p>
-              <p className="text-base md:text-lg text-foreground/80 max-w-2xl mx-auto">
+              <p className="text-base md:text-lg text-foreground/80 max-w-2xl mx-auto text-justify">
                 {content.home.heroDescription}
               </p>
               <div className="flex flex-wrap gap-4 pt-4 justify-center">
@@ -69,7 +69,7 @@ const Home = () => {
             <h2 className="text-3xl md:text-5xl font-bold text-primary">
               {content.home.welcomeTitle}
             </h2>
-            <p className="text-lg text-muted-foreground leading-relaxed">
+            <p className="text-lg text-muted-foreground leading-relaxed text-justify">
               {content.home.welcomeDescription}
             </p>
           </div>
@@ -85,7 +85,7 @@ const Home = () => {
                 <Heart className="h-7 w-7 text-primary" />
               </div>
               <h3 className="text-2xl font-bold text-primary mb-4">{content.home.value1Title}</h3>
-              <p className="text-muted-foreground leading-relaxed">
+              <p className="text-muted-foreground leading-relaxed text-justify">
                 {content.home.value1Description}
               </p>
             </div>
@@ -95,7 +95,7 @@ const Home = () => {
                 <BookOpen className="h-7 w-7 text-primary" />
               </div>
               <h3 className="text-2xl font-bold text-primary mb-4">{content.home.value2Title}</h3>
-              <p className="text-muted-foreground leading-relaxed">
+              <p className="text-muted-foreground leading-relaxed text-justify">
                 {content.home.value2Description}
               </p>
             </div>
@@ -105,7 +105,7 @@ const Home = () => {
                 <Users className="h-7 w-7 text-primary" />
               </div>
               <h3 className="text-2xl font-bold text-primary mb-4">{content.home.value3Title}</h3>
-              <p className="text-muted-foreground leading-relaxed">
+              <p className="text-muted-foreground leading-relaxed text-justify">
                 {content.home.value3Description}
               </p>
             </div>
@@ -126,7 +126,7 @@ const Home = () => {
             <h2 className="text-3xl md:text-5xl font-bold">
               {content.home.ctaTitle}
             </h2>
-            <p className="text-lg md:text-xl opacity-90">
+            <p className="text-lg md:text-xl opacity-90 text-justify">
               {content.home.ctaDescription}
             </p>
             <div className="pt-4">

@@ -32,7 +32,7 @@ const Footer = () => {
               </div>
               <h3 className="text-lg font-semibold">{footerContent.churchName}</h3>
             </div>
-            <p className="text-primary-foreground/80 text-sm leading-relaxed">
+            <p className="text-primary-foreground/80 text-sm leading-relaxed text-justify">
               {footerContent.description}
             </p>
           </div>
